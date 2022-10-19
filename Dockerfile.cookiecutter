@@ -1,0 +1,10 @@
+FROM alpine:3
+
+RUN apk update \
+    && apk upgrade --available \
+    && apk add --update git python3 py3-pip
+RUN pip install cookiecutter
+
+WORKDIR /home
+
+ENTRYPOINT [ "cookiecutter" ]
